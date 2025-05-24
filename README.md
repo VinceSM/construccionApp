@@ -6,12 +6,13 @@ USE estilodb;
 -- ============================
 -- TABLA: cliente
 -- ============================
+
 CREATE TABLE cliente (
+    
     idCliente INT AUTO_INCREMENT PRIMARY KEY,
     nombreCompleto VARCHAR(100) NOT NULL,
     dni VARCHAR(20) UNIQUE NOT NULL,
     telefono VARCHAR(20),
-
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL
@@ -20,10 +21,11 @@ CREATE TABLE cliente (
 -- ============================
 -- TABLA: estado_pedido
 -- ============================
+
 CREATE TABLE estado_pedido (
+
     idEstado INT AUTO_INCREMENT PRIMARY KEY,
     tipo VARCHAR(50) NOT NULL,
-
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL
@@ -32,10 +34,11 @@ CREATE TABLE estado_pedido (
 -- ============================
 -- TABLA: producto
 -- ============================
+
 CREATE TABLE producto (
+
     idProducto INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL
@@ -44,47 +47,47 @@ CREATE TABLE producto (
 -- ============================
 -- TABLA: stock
 -- ============================
+
 CREATE TABLE stock (
+
     idStock INT AUTO_INCREMENT PRIMARY KEY,
     idProducto INT NOT NULL,
     unidad DECIMAL(10, 2) NOT NULL,
     medida VARCHAR(20) NOT NULL, -- Ej: "kg", "m³", "unidad", etc.
-
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL,
-
     FOREIGN KEY (idProducto) REFERENCES producto(idProducto)
 );
 
 -- ============================
 -- TABLA: precio_producto
 -- ============================
+
 CREATE TABLE precio_producto (
+
     idPrecio INT AUTO_INCREMENT PRIMARY KEY,
     idProducto INT NOT NULL,
     moneda VARCHAR(10) DEFAULT 'ARS',
     monto DECIMAL(10,2) NOT NULL,
-
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL,
-
     FOREIGN KEY (idProducto) REFERENCES producto(idProducto)
 );
 
 -- ============================
 -- TABLA: pedido
 -- ============================
+
 CREATE TABLE pedido (
+
     idPedido INT AUTO_INCREMENT PRIMARY KEY,
     idCliente INT NOT NULL,
     idEstado INT NOT NULL,
     fechaPedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-
     updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL,
-
     FOREIGN KEY (idCliente) REFERENCES cliente(idCliente),
     FOREIGN KEY (idEstado) REFERENCES estado_pedido(idEstado)
 );
@@ -92,24 +95,23 @@ CREATE TABLE pedido (
 -- ============================
 -- TABLA: detalle_pedido
 -- ============================
+
 CREATE TABLE detalle_pedido (
+
     idDetalle INT AUTO_INCREMENT PRIMARY KEY,
     idPedido INT NOT NULL,
     idProducto INT NOT NULL,
     cantidad DECIMAL(10,2) NOT NULL,
     precio_producto DECIMAL(10,2) NOT NULL,
     subtotal DECIMAL(10,2) GENERATED ALWAYS AS (cantidad * precio_producto) STORED,
-
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL,
-
     FOREIGN KEY (idPedido) REFERENCES pedido(idPedido),
     FOREIGN KEY (idProducto) REFERENCES producto(idProducto)
 );
 
-INSERT INTO estado_pedido (tipo, createdAt)
-VALUES 
+INSERT INTO estado_pedido (tipo, createdAt) VALUES 
   ('Pendiente', NOW()),
   ('Confirmado', NOW()),
   ('En preparación', NOW()),
