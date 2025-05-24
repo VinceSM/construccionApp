@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/model/pedido.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/model/stock.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/model/conexionDb.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/dao/daoDetallePedido.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/controller/controllerDetallePedido.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/model/producto.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/dao/daoPedido.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/dao/daoCliente.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/dao/daoProducto.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/model/detallePedido.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/controller/controllerPedido.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/dao/daoStock.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/EstiloConstruccionApp.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/dao/daoPrecioProducto.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/controller/controllerProducto.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/controller/controllerStock.java</file>
+            <file>file:/C:/Users/Vicente/Documents/NetBeansProjects/EstiloConstruccionApp/src/app/dao/daoEstadoPedido.java</file>
+        </group>
+    </open-files>
+</project-private>
