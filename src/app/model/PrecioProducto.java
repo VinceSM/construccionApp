@@ -3,36 +3,36 @@ package app.model;
 import java.sql.Timestamp;
 import java.math.BigDecimal;
 
-public class Stock {
-    private int idStock;
+public class PrecioProducto {
+    private int idPrecio;
     private Producto producto;
-    private BigDecimal unidad; // Cambiado a BigDecimal para coincidir con DECIMAL(10,2)
-    private String medida;
+    private String moneda;
+    private BigDecimal monto; // Cambiado a BigDecimal
     private Timestamp createdAt;
     private Timestamp updatedAt;
     private Timestamp deletedAt;
 
-    public Stock() {}
+    public PrecioProducto() {}
 
-    public Stock(int idStock, Producto producto, BigDecimal unidad, String medida) {
-        this.idStock = idStock;
+    public PrecioProducto(int idPrecio, Producto producto, String moneda, BigDecimal monto) {
+        this.idPrecio = idPrecio;
         this.producto = producto;
-        this.unidad = unidad;
-        this.medida = medida;
+        this.moneda = moneda;
+        this.monto = monto;
     }
 
     // Getters y setters
-    public int getIdStock() { return idStock; }
-    public void setIdStock(int idStock) { this.idStock = idStock; }
+    public int getIdPrecio() { return idPrecio; }
+    public void setIdPrecio(int idPrecio) { this.idPrecio = idPrecio; }
 
     public Producto getProducto() { return producto; }
     public void setProducto(Producto producto) { this.producto = producto; }
 
-    public BigDecimal getUnidad() { return unidad; }
-    public void setUnidad(BigDecimal unidad) { this.unidad = unidad; }
+    public String getMoneda() { return moneda; }
+    public void setMoneda(String moneda) { this.moneda = moneda; }
 
-    public String getMedida() { return medida; }
-    public void setMedida(String medida) { this.medida = medida; }
+    public BigDecimal getMonto() { return monto; }
+    public void setMonto(BigDecimal monto) { this.monto = monto; }
 
     public Timestamp getCreatedAt() { return createdAt; }
     public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }

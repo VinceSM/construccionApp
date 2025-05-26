@@ -1,27 +1,27 @@
 package app.model;
 
-import jdk.jfr.Timestamp;
+import java.sql.Timestamp;
 
-public class Producto {
-    private int idProducto;
-    private String nombre;
+public class EstadoPedido {
+    private int idEstado;
+    private String tipo;
     private Timestamp createdAt;
     private Timestamp updatedAt;
     private Timestamp deletedAt;
 
-    public Producto() {}
+    public EstadoPedido() {}
 
-    public Producto(int idProducto, String nombre) {
-        this.idProducto = idProducto;
-        this.nombre = nombre;
+    public EstadoPedido(int idEstado, String tipo) {
+        this.idEstado = idEstado;
+        this.tipo = tipo;
     }
 
     // Getters y setters
-    public int getIdProducto() { return idProducto; }
-    public void setIdProducto(int idProducto) { this.idProducto = idProducto; }
+    public int getIdEstado() { return idEstado; }
+    public void setIdEstado(int idEstado) { this.idEstado = idEstado; }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
 
     public Timestamp getCreatedAt() { return createdAt; }
     public void setCreatedAt(Timestamp createdAt) { this.createdAt = createdAt; }
@@ -32,5 +32,3 @@ public class Producto {
     public Timestamp getDeletedAt() { return deletedAt; }
     public void setDeletedAt(Timestamp deletedAt) { this.deletedAt = deletedAt; }
 }
-
-
