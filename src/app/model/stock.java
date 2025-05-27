@@ -14,6 +14,14 @@ public class Stock {
 
     public Stock() {}
 
+    // Constructor de Stock
+    public Stock(BigDecimal unidad, Producto producto, String medida) {
+        this.unidad = unidad;
+        this.producto = producto != null ? producto : new Producto();
+        this.medida = medida;
+    }
+
+    // Constructor de Base de Datos
     public Stock(int idStock, Producto producto, BigDecimal unidad, String medida) {
         this.idStock = idStock;
         this.producto = producto;
