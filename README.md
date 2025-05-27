@@ -46,6 +46,8 @@ CREATE TABLE producto (
     deletedAt TIMESTAMP NULL
 );
 
+ALTER TABLE `producto` ADD `descripcion` VARCHAR(65) NOT NULL AFTER `nombre`;
+
 -- ============================
 -- TABLA: stock
 -- ============================
