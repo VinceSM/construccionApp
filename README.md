@@ -39,6 +39,8 @@ CREATE TABLE producto (
 
     idProducto INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    costo DECIMAL(10, 2) NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL
@@ -54,22 +56,6 @@ CREATE TABLE stock (
     idProducto INT NOT NULL,
     unidad DECIMAL(10, 2) NOT NULL,
     medida VARCHAR(20) NOT NULL, -- Ej: "kg", "m³", "unidad", etc.
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
-    deletedAt TIMESTAMP NULL,
-    FOREIGN KEY (idProducto) REFERENCES producto(idProducto)
-);
-
--- ============================
--- TABLA: precio_producto
--- ============================
-
-CREATE TABLE precio_producto (
-
-    idPrecio INT AUTO_INCREMENT PRIMARY KEY,
-    idProducto INT NOT NULL,
-    moneda VARCHAR(10) DEFAULT 'ARS',
-    monto DECIMAL(10,2) NOT NULL,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     deletedAt TIMESTAMP NULL,
