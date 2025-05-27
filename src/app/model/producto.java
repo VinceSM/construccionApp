@@ -40,6 +40,10 @@ public class Producto {
         this.precio = precio;
         this.costo = costo;
     }
+    
+    public Producto(int id){
+        this.idProducto = id;
+    }
 
     // Getters y setters
     public int getIdProducto() { return idProducto; }
@@ -54,7 +58,7 @@ public class Producto {
     public double getPrecio() { return precio; }
     public void setPrecio(double precio) { this.precio = precio; }
     
-    public double getCostro() { return costo; }
+    public double getCosto() { return costo; }
     public void setCosto(double costo) { this.costo = costo; }
 
     public Timestamp getCreatedAt() { return createdAt; }

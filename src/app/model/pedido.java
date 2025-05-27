@@ -7,14 +7,15 @@ import java.sql.Timestamp;
 public class Pedido {
     private int idPedido;
     private Cliente cliente;
+    private List<Item> items;
+    private double total;
     private EstadoPedido estado;
     private Timestamp fechaPedido;
     private Timestamp updatedAt;
     private Timestamp deletedAt;
-    private List<DetallePedido> detalles;
 
     public Pedido() {
-        this.detalles = new ArrayList<>();
+        this.items = new ArrayList<>();
     }
 
     public Pedido(int idPedido, Cliente cliente, EstadoPedido estado, Timestamp fechaPedido) {
@@ -22,7 +23,7 @@ public class Pedido {
         this.cliente = cliente;
         this.estado = estado;
         this.fechaPedido = fechaPedido;
-        this.detalles = new ArrayList<>();
+        this.items = new ArrayList<>();
     }
 
     // Getters y setters
@@ -43,11 +44,27 @@ public class Pedido {
 
     public Timestamp getDeletedAt() { return deletedAt; }
     public void setDeletedAt(Timestamp deletedAt) { this.deletedAt = deletedAt; }
+    
+    public double getTotal() { return total; }    
+    
+    public List<Item> getItems() { return items; }
 
-    public List<DetallePedido> getDetalles() { return detalles; }
-    public void setDetalles(List<DetallePedido> detalles) { this.detalles = detalles; }
+    public void setItems(List<Item> items) {
+        this.items = items != null ? items : new ArrayList<>();
+        calcularTotal();
+    }
 
-    public void agregarDetalle(DetallePedido detalle) {
-        this.detalles.add(detalle);
+    public void addItem(Item item) {
+        items.add(item);
+        calcularTotal();
+    }
+    
+    public double calcularTotal() {
+        this.total = 0;
+        for (Item item : items) {
+            this.total += item.getSubtotal();
+        }
+        
+        return total;
     }
 }
