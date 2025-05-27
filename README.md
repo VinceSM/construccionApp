@@ -81,21 +81,14 @@ CREATE TABLE pedido (
 );
 
 -- ============================
--- TABLA: detalle_pedido
+-- TABLA: item
 -- ============================
 
-CREATE TABLE detalle_pedido (
+CREATE TABLE item (
 
-    idDetalle INT AUTO_INCREMENT PRIMARY KEY,
-    idPedido INT NOT NULL,
-    idProducto INT NOT NULL,
-    cantidad DECIMAL(10,2) NOT NULL,
-    precio_producto DECIMAL(10,2) NOT NULL,
-    subtotal DECIMAL(10,2) GENERATED ALWAYS AS (cantidad * precio_producto) STORED,
-    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updatedAt TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
-    deletedAt TIMESTAMP NULL,
-    FOREIGN KEY (idPedido) REFERENCES pedido(idPedido),
+    idItem int not null PRIMARY KEY,
+    idProducto int not null,
+    cantidad int not null,
     FOREIGN KEY (idProducto) REFERENCES producto(idProducto)
 );
 
